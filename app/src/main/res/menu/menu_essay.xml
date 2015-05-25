@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.cfanr.geeknews.EssayActivity">
+    <item
+        android:id="@+id/action_share"
+        android:title="@string/action_share"
+        android:icon="@mipmap/ic_action_share"
+        app:showAsAction="always"
+        android:orderInCategory="100" />
+</menu>

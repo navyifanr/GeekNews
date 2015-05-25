@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9140</color>
+    <color name="colorPrimaryDark">#FF9146</color>
+
+    <color name="overflow_background">#ffffff</color>
+
+    <color name="news_item_text_color">#B3B3B3</color>
+    <color name="news_item_title_color">#242424</color>
+
+    <color name="main_bg">#ffffff</color>
+    <color name="bottom_bar">#FF9146</color>
+    <color name="bottom_bar_selected">#B3B3B3</color>
+</resources>

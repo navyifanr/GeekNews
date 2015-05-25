@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GeekNews</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">share</string>
+    <string name="title_activity_setting">Setting</string>
+
+    <string name="news_item_title_text">Material-UI:实现Google的Material模式的CSS框架</string>
+    <string name="like_num">2 points</string>
+    <string name="dots">&#160;·&#160;</string>
+    <string name="comment_num">5 comments</string>
+
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">更新：</string>
+    <string name="xlistview_footer_hint_normal">上滑查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="title_activity_essay">EssayActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

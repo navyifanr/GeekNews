@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Kitkat Traslucent Status bar -->
+    <style name="KitkatStatusBar" parent="MaterialNavigationDrawerTheme.Light.DarkActionBar.TranslucentKitKatStatusBar">
+        <!--Toolbar颜色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--主体风格-->
+        <item name="colorAccent">#FFFFFF</item>
+        <!--设置侧边栏默认隐藏-->
+        <item name="learningPattern">false</item>
+        <!--设置侧边栏的顶部是自定义布局-->
+        <item name="drawerType">@integer/DRAWERTYPE_CUSTOM</item>
+    </style>
+
+    <style name="borderlessButtonStyle">
+        <item name="android:background">@drawable/background_boardless</item>
+        <item name="android:paddingStart">4dip</item>
+        <item name="android:paddingEnd">4dip</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">64dip</item>
+    </style>
+
+</resources>

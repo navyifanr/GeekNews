@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/myProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:progressDrawable="@drawable/barcolor"/>
+
+    <cn.cfanr.geeknews.view.ObservableWebView
+        android:id="@+id/webview"
+        android:layout_below="@id/myProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:layout_alignParentBottom="true"
+        layout="@layout/browse_bar" />
+
+</RelativeLayout>
