@@ -1,8 +1,8 @@
 package cn.cfanr.geeknews.parser.utils;
 
 public class URLUtil {
-    public static final String NEWS_LIST_URL_HOTTEST= "http://geek.csdn.net/hot";
-    public static final String NEWS_LIST_URL_NEWEST = "http://geek.csdn.net/new";
+    public static final String NEWS_LIST_URL_HOTTEST= "http://geek.csdn.net/hotest";
+    public static final String NEWS_LIST_URL_NEWEST = "http://geek.csdn.net/newest";
 
     /**
      * 根据文章类型，和当前页码生成url
@@ -25,7 +25,7 @@ public class URLUtil {
                 urlStr = NEWS_LIST_URL_HOTTEST;
                 break;
         }
-        urlStr += "/" + currentPage;
+//        urlStr += "/" + currentPage;
         return urlStr;
     }
 

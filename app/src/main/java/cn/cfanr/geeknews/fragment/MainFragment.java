@@ -21,7 +21,7 @@ import cn.cfanr.geeknews.app.AppController;
 import cn.cfanr.geeknews.dao.NewsItemDao;
 import cn.cfanr.geeknews.data.NewsItem;
 import cn.cfanr.geeknews.data.NewsItemBiz;
-import cn.cfanr.geeknews.parser.exception.EasySpliderException;
+import cn.cfanr.geeknews.parser.exception.EssaySpliderException;
 import cn.cfanr.geeknews.parser.utils.Constants;
 import cn.cfanr.geeknews.utils.AppUtil;
 import cn.cfanr.geeknews.utils.NetUtil;
@@ -188,7 +188,7 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
                 // 存入数据库
                 mNewsItemDao.add(newsItems);
 
-            } catch (EasySpliderException e) {
+            } catch (EssaySpliderException e) {
                 e.printStackTrace();
                 isLoadingDataFromNetWork = false;
                 return TIP_ERROR_SERVER;
@@ -219,7 +219,7 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
                 List<NewsItem> newsItems = newsItemBiz.getNewsItems(newsType, currentPage);
                 mNewsItemDao.add(newsItems);
                 mAdapter.addAll(newsItems);
-            } catch (EasySpliderException e) {
+            } catch (EssaySpliderException e) {
                 e.printStackTrace();
             }
         } else
