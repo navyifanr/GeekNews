@@ -1,9 +1,11 @@
-package cn.cfanr.geeknews;
+package cn.cfanr.geeknews.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import cn.cfanr.geeknews.R;
 
 
 public class Settings extends AppCompatActivity {

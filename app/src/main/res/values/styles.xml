@@ -1,23 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--</style>-->
 
-    <!-- Kitkat Traslucent Status bar -->
-    <style name="KitkatStatusBar" parent="MaterialNavigationDrawerTheme.Light.DarkActionBar.TranslucentKitKatStatusBar">
-        <!--Toolbar颜色-->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!--状态栏颜色-->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <!--主体风格-->
-        <item name="colorAccent">#FFFFFF</item>
-        <!--设置侧边栏默认隐藏-->
-        <item name="learningPattern">false</item>
-        <!--设置侧边栏的顶部是自定义布局-->
-        <item name="drawerType">@integer/DRAWERTYPE_CUSTOM</item>
-    </style>
+    <!--&lt;!&ndash; Kitkat Traslucent Status bar &ndash;&gt;-->
+    <!--<style name="KitkatStatusBar" parent="MaterialNavigationDrawerTheme.Light.DarkActionBar.TranslucentKitKatStatusBar">-->
+        <!--&lt;!&ndash;Toolbar颜色&ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--&lt;!&ndash;状态栏颜色&ndash;&gt;-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--&lt;!&ndash;主体风格&ndash;&gt;-->
+        <!--<item name="colorAccent">#FFFFFF</item>-->
+        <!--&lt;!&ndash;设置侧边栏默认隐藏&ndash;&gt;-->
+        <!--<item name="learningPattern">false</item>-->
+        <!--&lt;!&ndash;设置侧边栏的顶部是自定义布局&ndash;&gt;-->
+        <!--<item name="drawerType">@integer/DRAWERTYPE_CUSTOM</item>-->
+    <!--</style>-->
 
     <style name="borderlessButtonStyle">
         <item name="android:background">@drawable/background_boardless</item>

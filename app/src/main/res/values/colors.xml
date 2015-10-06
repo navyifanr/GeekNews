@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_color">#ff4c4b</color>
+    <color name="tab_layout_bg_color">#ff4c4b</color>
+    <color name="tab_layout_color">#ffffff</color>
+
     <color name="colorPrimary">#FF9140</color>
     <color name="colorPrimaryDark">#FF9146</color>
 

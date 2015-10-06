@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-newsList xmlns:android="http://schemas.android.com/apk/res/android">
     <!--  设置背景色  -->
     <item  android:id="@android:id/background" >
         <shape>
@@ -21,4 +21,4 @@
         </clip>
     </item>
 
-</layer-list>  
+</layer-newsList>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 
-
 public class ObservableWebView extends WebView {
 
     private final static int TOUCH_STATE_REST = 0;

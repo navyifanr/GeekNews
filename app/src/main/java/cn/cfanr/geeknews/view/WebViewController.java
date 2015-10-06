@@ -18,7 +18,7 @@ import android.widget.ImageButton;
 
 import java.lang.ref.WeakReference;
 
-import cn.cfanr.geeknews.EssayActivity;
+import cn.cfanr.geeknews.activities.EssayActivity;
 import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.utils.UIUtils;
 

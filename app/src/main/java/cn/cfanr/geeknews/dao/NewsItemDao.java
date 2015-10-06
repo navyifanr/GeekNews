@@ -16,33 +16,33 @@ import cn.cfanr.geeknews.data.NewsItem;
 public class NewsItemDao {
     private DBHelper dbHelper;
 
-    public NewsItemDao(Context context){
-        dbHelper=new DBHelper(context);
+    public NewsItemDao(Context context) {
+        dbHelper = new DBHelper(context);
     }
 
-    public void add(NewsItem newsItem){
-        Log.e("add news newstype",newsItem.getType()+"");
-        String sql="insert into tb_newsItem (userName, time, title, likeNum, commentNum, hostName, link, type) values (?,?,?,?,?,?,?,?)";
-        SQLiteDatabase db=dbHelper.getWritableDatabase();
-        db.execSQL(sql,new Object[]{newsItem.getUserName(),newsItem.getTime(),newsItem.getTitle(),newsItem.getLikeNum(),
-                                newsItem.getCommentNum(),newsItem.getHostName(),newsItem.getLink(),newsItem.getType()});
+    public void add(NewsItem newsItem) {
+        Log.e("add news newstype", newsItem.getType() + "");
+        String sql = "insert into tb_newsItem (userName, time, title, likeNum, commentNum, hostName, link, type) values (?,?,?,?,?,?,?,?)";
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.execSQL(sql, new Object[]{newsItem.getUserName(), newsItem.getTime(), newsItem.getTitle(), newsItem.getLikeNum(),
+                newsItem.getCommentNum(), newsItem.getHostName(), newsItem.getLink(), newsItem.getType()});
         db.close();
     }
 
-    public void deleteAll(int newsType){
-        String sql="delete from tb_newsItem where type=?";
-        SQLiteDatabase db=dbHelper.getWritableDatabase();
-        db.execSQL(sql,new Object[]{newsType});
+    public void deleteAll(int newsType) {
+        String sql = "delete from tb_newsItem where type=?";
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.execSQL(sql, new Object[]{newsType});
         db.close();
     }
 
-    public void add(List<NewsItem> newsItems){
-        for(NewsItem newsItem: newsItems){
+    public void add(List<NewsItem> newsItems) {
+        for (NewsItem newsItem : newsItems) {
             add(newsItem);
         }
     }
 
-    public List<NewsItem> list(int newsType,int currentPage) {
+    public List<NewsItem> list(int newsType, int currentPage) {
         Log.e("newsType", newsType + "");
         Log.e("currentPage", currentPage + "");
         List<NewsItem> newsItems = new ArrayList<>();

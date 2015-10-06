@@ -14,9 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/KitkatStatusBar" >
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +23,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".activities.Settings"
             android:label="@string/title_activity_setting" >
         </activity>
         <activity
-            android:name=".EssayActivity"
+            android:name=".activities.EssayActivity"
             android:label="@string/title_activity_essay"
-            android:parentActivityName="cn.cfanr.geeknews.MainActivity">
+            android:parentActivityName=".activities.MainActivity">
         </activity>
     </application>
 

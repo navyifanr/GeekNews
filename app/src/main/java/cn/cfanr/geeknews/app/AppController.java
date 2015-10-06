@@ -43,12 +43,12 @@ public class AppController extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mInstance=this;
+        mInstance = this;
         mExecutorService = Executors.newSingleThreadExecutor(sThreadFactory);
         initHistory();
     }
 
-    public static synchronized AppController getmInstance(){
+    public static synchronized AppController getInstance() {
         return mInstance;
     }
 

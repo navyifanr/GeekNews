@@ -1,8 +1,8 @@
-package cn.cfanr.geeknews;
+package cn.cfanr.geeknews.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,12 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.view.ObservableWebView;
 import cn.cfanr.geeknews.view.WebViewController;
 
 
-public class EssayActivity extends ActionBarActivity implements ObservableWebView.OnScrollChangedCallback {
-    private int style_id;
+public class EssayActivity extends AppCompatActivity implements ObservableWebView.OnScrollChangedCallback {
     private String url;
     private String title;
     public ProgressBar bar;
@@ -30,9 +30,7 @@ public class EssayActivity extends ActionBarActivity implements ObservableWebVie
          * 接收传递过来的url、标题和ActionBar的主题
          */
         url = extras.getString("url");
-        style_id = extras.getInt("KitkatStatusBar");
         title = extras.getString("title");
-        setTheme(style_id);
         setTitle(title);
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.fragment_browse, null);

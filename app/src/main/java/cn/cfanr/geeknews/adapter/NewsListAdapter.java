@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.app.AppController;
 import cn.cfanr.geeknews.data.NewsItem;
@@ -71,22 +71,22 @@ public class NewsListAdapter extends BaseAdapter {
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.tv_name)
+        @Bind(R.id.tv_name)
         TextView name;
-        @InjectView(R.id.tv_time)
+        @Bind(R.id.tv_time)
         TextView time;
-        @InjectView(R.id.tv_title)
+        @Bind(R.id.tv_title)
         TextView title;
-        @InjectView(R.id.tv_like)
+        @Bind(R.id.tv_like)
         TextView likeNum;
-        @InjectView(R.id.tv_comment)
+        @Bind(R.id.tv_comment)
         TextView commentNum;
-        @InjectView(R.id.tv_website)
+        @Bind(R.id.tv_website)
         TextView hostName;
 
         public ViewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
 
         public void bindData(List<NewsItem> data, int position) {
@@ -99,7 +99,7 @@ public class NewsListAdapter extends BaseAdapter {
                 /**
                  * 此处判断文章是否已读
                  */
-                int textColor = AppController.getmInstance().isHistoryContains(
+                int textColor = AppController.getInstance().isHistoryContains(
                         newsItem.getLink()) ? Color.GRAY : Color.BLACK;
                 title.setTextColor(textColor);
 

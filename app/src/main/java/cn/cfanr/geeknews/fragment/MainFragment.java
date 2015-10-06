@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.cfanr.geeknews.EssayActivity;
+import cn.cfanr.geeknews.activities.EssayActivity;
 import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.adapter.NewsListAdapter;
 import cn.cfanr.geeknews.app.AppController;
@@ -31,8 +31,6 @@ import me.maxwin.view.IXListViewRefreshListener;
 import me.maxwin.view.XListView;
 
 public class MainFragment extends Fragment implements IXListViewRefreshListener, IXListViewLoadMore {
-    public static int MAIN_THEME_STYLE_ID = R.style.KitkatStatusBar;
-    public static String MAIN_THEME_STYLE = "KitkatStatusBar";
 
     private static final int LOAD_MORE = 0x110;
     private static final int LOAD_REFREASH = 0x111;
@@ -57,7 +55,7 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
     /**
      * 默认的newType
      */
-    public  int newsType = Constants.NEWS_TYPE_HOTTEST;
+    public int newsType = Constants.NEWS_TYPE_HOTTEST;
     /**
      * 当前页面
      */
@@ -66,7 +64,6 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
     private List<NewsItem> newsData = new ArrayList<>();
     private NewsListAdapter mAdapter;
     private NewsItemBiz newsItemBiz = new NewsItemBiz();
-
 
 
     @Override
@@ -96,10 +93,9 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
                 NewsItem newsItem = newsData.get(position - 1);
                 Intent intent = new Intent(getActivity(), EssayActivity.class);
                 intent.putExtra("url", newsItem.getLink());
-                intent.putExtra("title",newsItem.getTitle());
-                intent.putExtra(MAIN_THEME_STYLE, MAIN_THEME_STYLE_ID);
+                intent.putExtra("title", newsItem.getTitle());
                 startActivity(intent);
-                AppController.getmInstance().addHistory(newsItem.getLink());  //存储已读记录
+                AppController.getInstance().addHistory(newsItem.getLink());  //存储已读记录
                 mAdapter.notifyDataSetChanged(); //通知适配器修改已读状态
             }
         });
@@ -147,12 +143,12 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
         protected void onPostExecute(Integer result) {
             switch (result) {
                 case TIP_ERROR_NO_NETWORK:
-                    ToastUtil.toast(getActivity(), "没有网络连接！");
+                    ToastUtil.show(getActivity(), "没有网络连接！");
                     mAdapter.setDatas(newsData);
                     mAdapter.notifyDataSetChanged();
                     break;
                 case TIP_ERROR_SERVER:
-                    ToastUtil.toast(getActivity(), "服务器错误！");
+                    ToastUtil.show(getActivity(), "服务器错误！");
                     break;
 
                 default:
@@ -203,9 +199,7 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
             // mAdapter.setDatas(newsItems);
             return TIP_ERROR_NO_NETWORK;
         }
-
         return -1;
-
     }
 
     /**
@@ -222,9 +216,7 @@ public class MainFragment extends Fragment implements IXListViewRefreshListener,
             } catch (EssaySpliderException e) {
                 e.printStackTrace();
             }
-        } else
-        // 从数据库加载的
-        {
+        } else{  // 从数据库加载的
             currentPage += 1;
             List<NewsItem> newsItems = mNewsItemDao.list(newsType, currentPage);
             mAdapter.addAll(newsItems);
