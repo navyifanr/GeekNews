@@ -1,27 +1,27 @@
 package cn.cfanr.geeknews.parser.exception;
 
-public class EssaySpliderException extends Exception
+public class EssaySpiderException extends Exception
 {  
   
-    public EssaySpliderException()
+    public EssaySpiderException()
     {  
         super();  
         // TODO Auto-generated constructor stub  
     }  
   
-    public EssaySpliderException(String message, Throwable cause)
+    public EssaySpiderException(String message, Throwable cause)
     {  
         super(message, cause);  
         // TODO Auto-generated constructor stub  
     }  
   
-    public EssaySpliderException(String message)
+    public EssaySpiderException(String message)
     {  
         super(message);  
         // TODO Auto-generated constructor stub  
     }  
   
-    public EssaySpliderException(Throwable cause)
+    public EssaySpiderException(Throwable cause)
     {  
         super(cause);  
         // TODO Auto-generated constructor stub  
