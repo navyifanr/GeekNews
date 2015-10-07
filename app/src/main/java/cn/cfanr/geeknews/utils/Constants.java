@@ -19,7 +19,7 @@ public abstract class Constants {
     /**
      * Crash log dir
      */
-    public static final String CRASH_LOG_DIR = SDCARD_TOP_DIR+"/crash/";
+    public static final String CRASH_LOG_DIR = SDCARD_TOP_DIR + "/crash/";
 
     /**
      * 历史记录保存文件名
@@ -49,10 +49,7 @@ public abstract class Constants {
          * 注销
          */
         public static final String ACTION_LOGOUT = "geeknews.intent.action.LOGOUT";
-
     }
-
     public static final String TAG_BROWSE_FRAGMENT = "tag_browse_fragment";
-
 
 }

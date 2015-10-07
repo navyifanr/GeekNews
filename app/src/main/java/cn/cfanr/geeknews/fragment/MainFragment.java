@@ -39,25 +39,10 @@ public class MainFragment extends Fragment {
     private static final int TIP_ERROR_SERVER = 0X113;
     private NewsAdapter mAdapter;
     private NewsItemDao mNewsItemDao;
-    /**
-     * 是否是第一次进入
-     */
     private boolean isFirstIn = true;
-    /**
-     * 是否连接网络
-     */
     private boolean isConnNet = false;
-    /**
-     * 当前数据是否是从网络中获取的
-     */
     private boolean isLoadingDataFromNetWork;
-    /**
-     * 默认的newType
-     */
     public int newsType = Constants.NEWS_TYPE_HOTTEST;
-    /**
-     * 当前页面
-     */
     private int currentPage = 1;
     private List<NewsItem> newsList = new ArrayList<>();
     private NewsItemBiz newsItemBiz = new NewsItemBiz();
@@ -73,6 +58,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Bundle bundle=getArguments();
+        newsType=bundle.getInt("newsType");
         mNewsItemDao = new NewsItemDao(getActivity());
         mAdapter = new NewsAdapter(getActivity(), newsList);
         mAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {

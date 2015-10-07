@@ -10,14 +10,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.cfanr.geeknews.parser.exception.EssaySpliderException;
+import cn.cfanr.geeknews.parser.exception.EssaySpiderException;
 import cn.cfanr.geeknews.parser.utils.ExtractTime;
 import cn.cfanr.geeknews.parser.utils.URLUtil;
 
 
 public class NewsItemBiz {
     public List<NewsItem> getNewsItems(int newsType, int currentPage)
-            throws EssaySpliderException {
+            throws EssaySpiderException {
         String urlStr = URLUtil.generateUrl(newsType, currentPage);
 
 //		String htmlStr = DataUtil.doGet(urlStr);

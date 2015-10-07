@@ -13,6 +13,6 @@
     <color name="news_item_title_color">#242424</color>
 
     <color name="main_bg">#ffffff</color>
-    <color name="bottom_bar">#FF9146</color>
+    <color name="bottom_bar">#ff4c4b</color>
     <color name="bottom_bar_selected">#B3B3B3</color>
 </resources>

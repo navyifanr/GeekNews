@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <me.maxwin.view.XListView
-        android:id="@+id/xlistview"
+    <cn.cfanr.geeknews.view.PullLoadMoreRecyclerView
+        android:id="@+id/pull_load_more_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        </me.maxwin.view.XListView>
+
+    </cn.cfanr.geeknews.view.PullLoadMoreRecyclerView>
 </LinearLayout>

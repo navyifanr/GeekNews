@@ -4,7 +4,13 @@
     tools:context=".MainActivity">
     <item
         android:id="@+id/action_settings"
-        android:title="@string/action_settings"
         android:orderInCategory="100"
+        android:title="设置"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="100"
+        android:title="退出程序"
         app:showAsAction="never" />
 </menu>

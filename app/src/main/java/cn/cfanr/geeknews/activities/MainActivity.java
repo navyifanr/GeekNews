@@ -1,5 +1,7 @@
 package cn.cfanr.geeknews.activities;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +20,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.adapter.TabFragmentAdapter;
-import cn.cfanr.geeknews.fragment.CollectionFragment;
-import cn.cfanr.geeknews.fragment.HottestFragment;
-import cn.cfanr.geeknews.fragment.NewestFragment;
-
+import cn.cfanr.geeknews.fragment.MainFragment;
+import cn.cfanr.geeknews.parser.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
-
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
     @Bind(R.id.tabLayout)
@@ -30,41 +31,33 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.viewPager)
     ViewPager mViewPager;
 
+    private int[] newsType = {Constants.NEWS_TYPE_HOTTEST, Constants.NEWS_TYPE_NEWEST,
+            Constants.NEWS_TYPE_ANDROID, Constants.NEWS_TYPE_IOS,Constants.NEWS_TYPE_FRONT_END};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            // Translucent status bar
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // Translucent navigation bar
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
         ButterKnife.bind(this);
         initToolbar();
         initTabLayout();
     }
 
-    private void initToolbar(){
+    private void initToolbar() {
         setSupportActionBar(mToolbar);
         mToolbar.setTitle("GeekNews");
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void initTabLayout() {
@@ -72,27 +65,22 @@ public class MainActivity extends AppCompatActivity {
         tabList.add("热门");
         tabList.add("最新");
         tabList.add("Android");
+        tabList.add("iOS");
+        tabList.add("前端");
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(2)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(3)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(4)));
 
         List<Fragment> fragmentList = new ArrayList<>();
-
-        HottestFragment hottestFragment=new HottestFragment();
-        fragmentList.add(hottestFragment);
-
-        NewestFragment newestFragment=new NewestFragment();
-        fragmentList.add(newestFragment);
-
-        CollectionFragment collectionFragment=new CollectionFragment();
-        fragmentList.add(collectionFragment);
-//        for(int i=0;i<tabList.size();i++) {
-//            ScrollFragment scrollFragment = new ScrollFragment();
-//            Bundle bundle = new Bundle();
-//            bundle.putString("tabId", ""+(i+1));
-//            scrollFragment.setArguments(bundle);
-//            fragmentList.add(scrollFragment);
-//        }
+        for (int i = 0; i < tabList.size(); i++) {
+            MainFragment mainFragment = new MainFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("newsType", newsType[i]);
+            mainFragment.setArguments(bundle);
+            fragmentList.add(mainFragment);
+        }
 
         TabFragmentAdapter fragmentAdapter = new TabFragmentAdapter(getSupportFragmentManager(), fragmentList, tabList);
         mViewPager.setAdapter(fragmentAdapter);//给ViewPager设置适配器
@@ -100,4 +88,24 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.setTabsFromPagerAdapter(fragmentAdapter);//给Tabs设置适配器
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_settings:
+                Intent intent=new Intent(this,Settings.class);
+                startActivity(intent);
+                break;
+            case R.id.action_exit:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

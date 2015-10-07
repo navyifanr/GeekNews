@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cn.cfanr.geeknews.parser.exception.EssaySpliderException;
+import cn.cfanr.geeknews.parser.exception.EssaySpiderException;
 
 /**
  * 此类废弃，获取结果会出现部分乱码
@@ -13,7 +13,7 @@ public class DataUtil {
     /**
      * 返回该链接地址的html数据
      */
-    public static String readHtml(String urlStr) throws EssaySpliderException {
+    public static String readHtml(String urlStr) throws EssaySpiderException {
         StringBuffer sb = new StringBuffer();
         try {
             URL url = new URL(urlStr);
@@ -33,7 +33,7 @@ public class DataUtil {
 
                 is.close();
             } else {
-                throw new EssaySpliderException("访问网络失败！");
+                throw new EssaySpiderException("访问网络失败！");
             }
         } catch (Exception e) {
             e.printStackTrace();

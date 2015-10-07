@@ -43,11 +43,13 @@
         android:textSize="@dimen/news_item_title_text_size" />
 
     <LinearLayout
+        android:id="@+id/ll_news_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/news_item_margin_between"
         android:layout_marginLeft="@dimen/news_item_margin_left_right"
         android:layout_marginRight="@dimen/news_item_margin_left_right"
+        android:layout_marginBottom="3dip"
         android:layout_below="@id/tv_title"
         android:orientation="horizontal">
 
@@ -84,4 +86,11 @@
             android:layout_marginBottom="@dimen/news_item_margin_top_bottom"
             android:textSize="@dimen/news_item_text_small_size" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="@color/news_item_text_color"
+        android:layout_below="@id/ll_news_info"
+        />
 </RelativeLayout>

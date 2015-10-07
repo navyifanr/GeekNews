@@ -1,7 +1,7 @@
 package cn.cfanr.geeknews.view;
 
 /**
- * Created by Administrator on 2015/7/28.
+ * Created by cfanr on 2015/10/7.
  */
 
 import android.content.Context;
@@ -24,7 +24,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.xiaochushuo.R;
+import cn.cfanr.geeknews.R;
 
 public class CircleImageView extends ImageView {
 

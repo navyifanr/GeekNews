@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cn.cfanr.geeknews.parser.exception.EssaySpliderException;
+import cn.cfanr.geeknews.parser.exception.EssaySpiderException;
 
 
 public class SpliderThread extends AsyncTask<String,Void,String>{
@@ -36,7 +36,7 @@ public class SpliderThread extends AsyncTask<String,Void,String>{
                 is.close();
                 return sb.toString();
             } else {
-                throw new EssaySpliderException("访问网络失败！");
+                throw new EssaySpiderException("访问网络失败！");
             }
         } catch (Exception e) {
             e.printStackTrace();

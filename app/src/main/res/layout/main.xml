@@ -1,7 +1,8 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
             android:background="@color/primary_color"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:layout_scrollFlags="scroll|enterAlways"
             />
 
@@ -27,6 +29,9 @@
             app:tabSelectedTextColor="@color/tab_layout_color"
             app:tabTextColor="@color/tab_layout_color"
             app:tabGravity="fill"
+            app:tabMode="scrollable"
+            app:tabMinWidth="80dp"
+            app:tabMaxWidth="100dp"
             style="@style/CustomTabLayout"
             />
     </android.support.design.widget.AppBarLayout>

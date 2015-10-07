@@ -1,6 +1,7 @@
 package cn.cfanr.geeknews.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.cfanr.geeknews.R;
+import cn.cfanr.geeknews.app.AppController;
 import cn.cfanr.geeknews.data.NewsItem;
 
 /**
@@ -28,7 +30,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     private OnItemClickListener mOnItemClickListener;
 
-    public void setOnItemClickLitener(OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
@@ -45,6 +47,33 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(final NewsViewHolder holder, final int position) {
+        NewsItem newsItem = newsList.get(position);
+
+        holder.name.setText(newsItem.getUserName());
+        holder.time.setText(newsItem.getTime());
+        holder.title.setText(newsItem.getTitle());
+        /**
+         * 此处判断文章是否已读
+         */
+        int textColor = AppController.getInstance().isHistoryContains(
+                newsItem.getLink()) ? Color.GRAY : Color.BLACK;
+        holder.title.setTextColor(textColor);
+
+        int likes=newsItem.getLikeNum();
+        if(likes>1){
+            holder.likeNum.setText(likes+" points");
+        }else {
+            holder.likeNum.setText(likes + " point");
+        }
+        int comments=newsItem.getCommentNum();
+        if(comments>1){
+            holder.commentNum.setText(comments+" comments");
+        }else if(comments==1){
+            holder.commentNum.setText(comments+" comment");
+        }else if(comments==0){
+            holder.commentNum.setText("no comments");
+        }
+        holder.hostName.setText(newsItem.getHostName());
 
         // 如果设置了回调，则设置点击事件
         if (mOnItemClickListener != null) {
@@ -61,6 +90,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public int getItemCount() {
         return newsList.size();
+    }
+
+    public void setData(List<NewsItem> newsList) {
+        this.newsList.clear();
+        this.newsList.addAll(newsList);
+    }
+
+    public void addAll(List<NewsItem> newsList) {
+        this.newsList.addAll(newsList);
     }
 
     public class NewsViewHolder extends RecyclerView.ViewHolder {
