@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,7 @@ import cn.cfanr.geeknews.fragment.HottestFragment;
 import cn.cfanr.geeknews.fragment.NewestFragment;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -68,9 +69,9 @@ public class MainActivity extends BaseActivity {
 
     private void initTabLayout() {
         List<String> tabList = new ArrayList<>();
-        tabList.add("tab1");
-        tabList.add("tab2");
-        tabList.add("tab3");
+        tabList.add("热门");
+        tabList.add("最新");
+        tabList.add("Android");
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(0)));//添加tab选项卡
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(1)));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabList.get(2)));

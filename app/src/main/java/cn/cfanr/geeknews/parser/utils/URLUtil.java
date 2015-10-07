@@ -3,6 +3,7 @@ package cn.cfanr.geeknews.parser.utils;
 public class URLUtil {
     public static final String NEWS_LIST_URL_HOTTEST= "http://geek.csdn.net/hotest";
     public static final String NEWS_LIST_URL_NEWEST = "http://geek.csdn.net/newest";
+    public static final String NEWS_LIST_URL_ANDROID="http://geek.csdn.net/forum/65";
 
     /**
      * 根据文章类型，和当前页码生成url
@@ -20,6 +21,9 @@ public class URLUtil {
                 break;
             case Constants.NEWS_TYPE_NEWEST:
                 urlStr = NEWS_LIST_URL_NEWEST;
+                break;
+            case Constants.NEWS_TYPE_ANDROID:
+                urlStr=NEWS_LIST_URL_ANDROID;
                 break;
             default:
                 urlStr = NEWS_LIST_URL_HOTTEST;

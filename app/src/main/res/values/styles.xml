@@ -4,24 +4,6 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
-    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
-    <!--<style name="AppTheme" parent="Theme.AppCompat.Light">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-    <!--</style>-->
-
-    <!--&lt;!&ndash; Kitkat Traslucent Status bar &ndash;&gt;-->
-    <!--<style name="KitkatStatusBar" parent="MaterialNavigationDrawerTheme.Light.DarkActionBar.TranslucentKitKatStatusBar">-->
-        <!--&lt;!&ndash;Toolbar颜色&ndash;&gt;-->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--&lt;!&ndash;状态栏颜色&ndash;&gt;-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--&lt;!&ndash;主体风格&ndash;&gt;-->
-        <!--<item name="colorAccent">#FFFFFF</item>-->
-        <!--&lt;!&ndash;设置侧边栏默认隐藏&ndash;&gt;-->
-        <!--<item name="learningPattern">false</item>-->
-        <!--&lt;!&ndash;设置侧边栏的顶部是自定义布局&ndash;&gt;-->
-        <!--<item name="drawerType">@integer/DRAWERTYPE_CUSTOM</item>-->
-    <!--</style>-->
 
     <style name="borderlessButtonStyle">
         <item name="android:background">@drawable/background_boardless</item>
@@ -29,6 +11,14 @@
         <item name="android:paddingEnd">4dip</item>
         <item name="android:minHeight">48dip</item>
         <item name="android:minWidth">64dip</item>
+    </style>
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/CustomTextAppearance</item>
+    </style>
+
+    <style name="CustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
     </style>
 
 </resources>

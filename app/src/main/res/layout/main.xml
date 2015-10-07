@@ -27,6 +27,7 @@
             app:tabSelectedTextColor="@color/tab_layout_color"
             app:tabTextColor="@color/tab_layout_color"
             app:tabGravity="fill"
+            style="@style/CustomTabLayout"
             />
     </android.support.design.widget.AppBarLayout>
 
