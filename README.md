@@ -4,6 +4,8 @@
 ##实图
 ![](https://raw.githubusercontent.com/navyifanr/GeekNews/master/pic/device-2015-10-07-222640.png)
 
+
+
 ![](https://raw.githubusercontent.com/navyifanr/GeekNews/master/pic/device-2015-10-07-222753.png)
 
 
