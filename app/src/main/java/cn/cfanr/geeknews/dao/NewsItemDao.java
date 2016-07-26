@@ -25,7 +25,7 @@ public class NewsItemDao {
         String sql = "insert into tb_newsItem (userName, time, title, likeNum, commentNum, hostName, link, type) values (?,?,?,?,?,?,?,?)";
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL(sql, new Object[]{newsItem.getUserName(), newsItem.getTime(), newsItem.getTitle(), newsItem.getLikeNum(),
-                newsItem.getCommentNum(), newsItem.getHostName(), newsItem.getLink(), newsItem.getType()});
+                newsItem.getReadNum(), newsItem.getHostName(), newsItem.getLink(), newsItem.getType()});
         db.close();
     }
 
@@ -70,7 +70,7 @@ public class NewsItemDao {
                 newsItem.setTime(time);
                 newsItem.setTitle(title);
                 newsItem.setLikeNum(likeNum);
-                newsItem.setCommentNum(commentNum);
+                newsItem.setReadNum(commentNum);
                 newsItem.setHostName(hostName);
                 newsItem.setLink(link);
                 newsItem.setType(type);

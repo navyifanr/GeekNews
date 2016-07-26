@@ -65,13 +65,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         }else {
             holder.likeNum.setText(likes + " point");
         }
-        int comments=newsItem.getCommentNum();
+        int comments=newsItem.getReadNum();
         if(comments>1){
-            holder.commentNum.setText(comments+" comments");
+            holder.commentNum.setText(comments+" page views");
         }else if(comments==1){
-            holder.commentNum.setText(comments+" comment");
+            holder.commentNum.setText(comments+" page views");
         }else if(comments==0){
-            holder.commentNum.setText("no comments");
+            holder.commentNum.setText("no page views");
         }
         holder.hostName.setText(newsItem.getHostName());
 

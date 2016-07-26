@@ -11,7 +11,7 @@ public class NewsItem implements Serializable {
     private String time;
     private String title;
     private int likeNum;
-    private int commentNum;
+    private int readNum;
     private String hostName;
     private String link;
     private int type;
@@ -20,13 +20,13 @@ public class NewsItem implements Serializable {
 
     }
 
-    public NewsItem(int id, String userName, String time, int likeNum, String title, int commentNum, String hostName, String link, int type) {
+    public NewsItem(int id, String userName, String time, int likeNum, String title, int readNum, String hostName, String link, int type) {
         this.id = id;
         this.userName = userName;
         this.time = time;
         this.likeNum = likeNum;
         this.title = title;
-        this.commentNum = commentNum;
+        this.readNum = readNum;
         this.hostName = hostName;
         this.link = link;
         this.type = type;
@@ -72,12 +72,12 @@ public class NewsItem implements Serializable {
         this.likeNum = likeNum;
     }
 
-    public int getCommentNum() {
-        return commentNum;
+    public int getReadNum() {
+        return readNum;
     }
 
-    public void setCommentNum(int commentNum) {
-        this.commentNum = commentNum;
+    public void setReadNum(int readNum) {
+        this.readNum = readNum;
     }
 
     public String getHostName() {
@@ -108,7 +108,7 @@ public class NewsItem implements Serializable {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("NewsItem[ id=").append(id).append(", userName=").append(userName).append(", time=").append(time).append(", likeNum=").append(likeNum).append(", title=").append(
-                title).append(", commentNum=").append(commentNum).append(", hostName=").append(hostName).append(", link=").append(link).append(", type=").append(type).append("]");
+                title).append(", readNum=").append(readNum).append(", hostName=").append(hostName).append(", link=").append(link).append(", type=").append(type).append("]");
         return builder.toString();
     }
 }

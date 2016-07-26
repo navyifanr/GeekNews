@@ -7,6 +7,6 @@
     <dimen name="news_item_margin_top_bottom">5dp</dimen>
     <dimen name="news_item_margin_between">5dp</dimen>
 
-    <dimen name="news_item_text_small_size">15dp</dimen>
-    <dimen name="news_item_title_text_size">20dp</dimen>
+    <dimen name="news_item_text_small_size">15sp</dimen>
+    <dimen name="news_item_title_text_size">20sp</dimen>
 </resources>
