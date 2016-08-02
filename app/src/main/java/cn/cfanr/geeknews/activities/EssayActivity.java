@@ -3,19 +3,17 @@ package cn.cfanr.geeknews.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import butterknife.ButterKnife;
 import cn.cfanr.geeknews.R;
 import cn.cfanr.geeknews.view.ObservableWebView;
 import cn.cfanr.geeknews.view.WebViewController;
 
 
-public class EssayActivity extends BaseActivity implements ObservableWebView.OnScrollChangedCallback {
+public class EssayActivity extends BaseBarActivity implements ObservableWebView.OnScrollChangedCallback {
     private String url;
     private String title;
     public ProgressBar bar;
@@ -25,35 +23,31 @@ public class EssayActivity extends BaseActivity implements ObservableWebView.OnS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.fragment_browse, null);
-        setContentView(view);
-        ButterKnife.bind(this);
-        Bundle extras = getIntent().getExtras();
-        url = extras.getString("url");
-        title = extras.getString("title");
-        getSupportActionBar().setTitle(title);
-        getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        initView(view);
     }
 
-    private void initView( View view) {
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.fragment_browse;
+    }
 
+    @Override
+    public void initView() {
         bar = (ProgressBar) findViewById(R.id.myProgressBar);
         mWebViewController = new WebViewController(this);
 
         mWebView = (ObservableWebView) findViewById(R.id.web_view);
         mWebView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+    }
+
+    @Override
+    public void initEvent() {
+        Bundle extras = getIntent().getExtras();
+        url = extras.getString("url");
+        title = extras.getString("title");
+        this.setTitle(title);
+
         mWebView.setOnScrollChangedCallback(this);
-        mWebViewController.initControllerView(mWebView, view);
+        mWebViewController.initControllerView(mWebView, this.layoutView);
         mWebViewController.loadUrl(url);
     }
 

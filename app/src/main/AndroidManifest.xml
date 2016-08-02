@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.cfanr.geeknews" >
+    package="cn.cfanr.geeknews">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,7 +12,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name">
@@ -23,14 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.Settings"
-            android:label="@string/title_activity_setting" >
-        </activity>
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_activity_setting"/>
         <activity
             android:name=".activities.EssayActivity"
             android:label="@string/title_activity_essay"
-            android:parentActivityName=".activities.MainActivity">
-        </activity>
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
 </manifest>

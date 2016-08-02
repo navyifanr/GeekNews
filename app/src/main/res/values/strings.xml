@@ -19,7 +19,7 @@
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
     <string name="title_activity_essay">EssayActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

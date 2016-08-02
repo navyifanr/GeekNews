@@ -1,69 +1,82 @@
 package cn.cfanr.geeknews.activities;
 
-import android.os.Build;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import cn.cfanr.geeknews.R;
-import cn.cfanr.geeknews.app.AppController;
-import cn.cfanr.geeknews.utils.DensityUtil;
+/**
+ * @author xifan
+ * @time 2016/5/4
+ * @desc
+ */
+public abstract class BaseActivity extends AppCompatActivity{
 
-public class BaseActivity extends AppCompatActivity {
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
-    @Bind(R.id.root_layout)
-    LinearLayout rootLayout;
-    private boolean isKitkat=false;
+    private long firstClick;
+    private long lastClick;
+    private int count;  // 计算点击的次数
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 注意是调用父类的方法，super
-        super.setContentView(R.layout.activity_base);
-        ButterKnife.bind(this);
-        // 经测试在代码里直接声明透明状态栏更有效
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            isKitkat=true;
-            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
-            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
-        }
-        initToolbar();
+        setBaseContentView(getLayoutResId());
+        initView();
+        initEvent();
     }
 
-    private void initToolbar() {
-        if (mToolbar != null) {
-            if(isKitkat) {
-                mToolbar.setPadding(0, DensityUtil.dip2px(this, 25), 0, 0);
+    public void setBaseContentView(@LayoutRes int layoutResId){
+        setContentView(layoutResId);
+    }
+
+    public void setDoubleClickBarToTop(Toolbar toolbar, final RecyclerView recyclerView){
+        toolbar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        // 如果第二次点击 距离第一次点击时间过长 那么将第二次点击看为第一次点击
+                        if (firstClick != 0 && System.currentTimeMillis() - firstClick > 300) {
+                            count = 0;
+                        }
+                        count++;
+                        if (count == 1) {
+                            firstClick = System.currentTimeMillis();
+                        } else if (count == 2) {
+                            lastClick = System.currentTimeMillis();
+                            // 两次点击小于300ms 也就是连续点击
+                            if (lastClick - firstClick < 300) {// 判断是否是执行了双击事件
+                                recyclerView.scrollToPosition(0);
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                }
+                return true;
             }
-            setSupportActionBar(mToolbar);
-        }
+        });
     }
 
-    @Override
-    public void setContentView(int layoutId) {
-        setContentView(View.inflate(this, layoutId, null));
+    protected abstract int getLayoutResId();
+
+    public abstract void initView();
+
+    public abstract void initEvent();
+
+    public <T extends View>T $(@IdRes int resId){
+        return (T) super.findViewById(resId);
     }
 
-    @Override
-    public void setContentView(View view) {
-        if (rootLayout == null) return;
-        rootLayout.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        initToolbar();
+    public Activity getActivity(){
+        return this;
     }
 
-    public  void show(CharSequence text) {
-        if (text.length() < 10) {
-            Toast.makeText(AppController.getInstance(), text, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(AppController.getInstance(), text, Toast.LENGTH_LONG).show();
-        }
-    }
 }

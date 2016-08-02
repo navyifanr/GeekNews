@@ -4,8 +4,9 @@
     <color name="tab_layout_bg_color">#ff4c4b</color>
     <color name="tab_layout_color">#ffffff</color>
 
-    <color name="colorPrimary">#FF9140</color>
-    <color name="colorPrimaryDark">#FF9146</color>
+    <color name="colorPrimary">#ff4c4b</color>
+    <color name="colorPrimaryDark">#ff4c4b</color>
+    <color name="colorAccent">#ffffff</color>
 
     <color name="overflow_background">#ffffff</color>
 
@@ -15,4 +16,5 @@
     <color name="main_bg">#ffffff</color>
     <color name="bottom_bar">#ff4c4b</color>
     <color name="bottom_bar_selected">#B3B3B3</color>
+    <color name="white">#ffffff</color>
 </resources>
