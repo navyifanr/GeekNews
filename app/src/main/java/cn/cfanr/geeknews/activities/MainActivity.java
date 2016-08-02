@@ -37,17 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            Window window = getWindow();
-//            // Translucent status bar
-//            window.setFlags(
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            // Translucent navigation bar
-//            window.setFlags(
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//        }
         ButterKnife.bind(this);
         initToolbar();
         initTabLayout();
