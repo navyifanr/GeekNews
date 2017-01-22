@@ -4,6 +4,8 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.squareup.leakcanary.LeakCanary;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,6 +48,8 @@ public class AppController extends Application {
         mInstance = this;
         mExecutorService = Executors.newSingleThreadExecutor(sThreadFactory);
         initHistory();
+
+        LeakCanary.install(this);
     }
 
     public static synchronized AppController getInstance() {
