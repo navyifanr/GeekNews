@@ -53,10 +53,14 @@ public class NewsItemBiz {
                  * 获取标题、对应链接、主机名
                  * 注意有些news是站内的，不同于其他，要额外处理
                  */
-                Element title_a_ele = content_ele.child(1);
-//		     	Element title_a_ele=title_ele.child(0);
-                String title = title_a_ele.getElementsByTag("a").text();
-                String link = title_a_ele.getElementsByTag("a").attr("href");
+//                Element title_a_ele = content_ele.child(1);
+////		     	Element title_a_ele=title_ele.child(0);
+//                String title = title_a_ele.getElementsByTag("a").text();
+//                String link = title_a_ele.getElementsByTag("a").attr("href");
+
+                Element title_link_ele = content_ele.child(2);
+                String title = title_link_ele.getElementsByTag("a").text();
+                String link = title_link_ele.getElementsByTag("a").attr("href");
                 //=title_ele.child(1).text();
     //			if(title.equals("")){
     //				title_a_ele=title_ele.child(1);
@@ -67,7 +71,7 @@ public class NewsItemBiz {
                 newsItem.setTitle(title);
                 newsItem.setLink(link);
 
-                Elements detail_ele = content_ele.child(2).getElementsByTag("li");
+                Elements detail_ele = content_ele.child(3).getElementsByTag("li");
                 String hostName = "";
                 hostName = detail_ele.get(0).getElementsByTag("a").text();
                 if (hostName.equals("")) {
